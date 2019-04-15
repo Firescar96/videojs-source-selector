@@ -1,6 +1,6 @@
 # videojs-http-source-selector
 
-[![NPM](https://nodei.co/npm/videojs-http-source-selector.png)](https://nodei.co/npm/videojs-http-source-selector/) 
+[![NPM](https://nodei.co/npm/@mtonomy/videojs-source-selector.png)](https://nodei.co/npm/@mtonomy/videojs-source-selector)
 
 VideoJS plugin that leverages videojs-contrib-quality-levels plugin to offer manual user-selectable level selection options for adaptive http streams.
 
@@ -61,7 +61,7 @@ This is the simplest case. Get the script in whatever way you prefer and include
 <script src="//path/to/videojs-http-source-selector.min.js"></script>
 <script src="//path/to/videojs-contrib-quality-levels.min.js"></script>
 <script>
-  var options = 
+  var options =
   {
     plugins: {
       httpSourceSelector:
@@ -119,7 +119,7 @@ go to localhost:9999 (or the next free port) and test out the plugin.
 
 ## License
 
-MIT. Copyright (c) Justin Fujita;
+MIT. Copyright (c) Justin Fujita, MTonomy;
 
 
 [videojs]: http://videojs.com/
