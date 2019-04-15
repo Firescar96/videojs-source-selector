@@ -13,7 +13,7 @@ export default {
   name: 'videojsHttpSourceSelector',
   input: 'src/plugin.js',
   output: {
-    file: 'dist/videojs-http-source-selector.js',
+    file: 'dist/videojs-source-selector.js',
     format: 'umd'
   },
   external: [

@@ -12,10 +12,10 @@ export default {
   name: 'videojsHttpSourceSelector',
   input: 'src/plugin.js',
   output: [{
-    file: 'dist/videojs-http-source-selector.cjs.js',
+    file: 'dist/videojs-source-selector.cjs.js',
     format: 'cjs',
   }, {
-    file: 'dist/videojs-http-source-selector.es.js',
+    file: 'dist/videojs-source-selector.es.js',
     format: 'es',
   }],
   external: [

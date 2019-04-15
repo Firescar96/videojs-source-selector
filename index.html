@@ -2,14 +2,14 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>videojs-http-source-selector Demo</title>
+  <title>videojs-source-selector Demo</title>
   <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
   <!--<link href="node_modules/video.js/dist/video-js.css" rel="stylesheet">-->
-  <link href="dist/videojs-http-source-selector.css" rel="stylesheet">
+  <link href="dist/videojs-source-selector.css" rel="stylesheet">
 </head>
 <body>
-  <title>videojs-http-source-selector Demo</title>
-  <video id="videojs-http-source-selector-player" width="1280" height="720" class="video-js vjs-default-skin" controls>
+  <title>videojs-source-selector Demo</title>
+  <video id="videojs-source-selector-player" width="1280" height="720" class="video-js vjs-default-skin" controls>
     <source src="https://www.streambox.fr/playlists/x36xhzz/x36xhzz.m3u8" type='application/x-mpegURL'>
   </video>
   Stream URL:
@@ -19,10 +19,10 @@
   <!--<script src="node_modules/video.js/dist/video.js"></script>-->
   <script src='https://vjs.zencdn.net/7.4.1/video.js'></script>
   <script src="dist/videojs-contrib-quality-levels.js"></script>
-  <script src="dist/videojs-http-source-selector.js"></script>
+  <script src="dist/videojs-source-selector.js"></script>
   <script>
     (function(window, videojs) {
-      var player = window.player = videojs('videojs-http-source-selector-player');
+      var player = window.player = videojs('videojs-source-selector-player');
       player.httpSourceSelector();
     }(window, window.videojs));
 

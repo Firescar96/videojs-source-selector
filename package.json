@@ -1,6 +1,6 @@
 {
   "name": "@mtonomy/videojs-source-selector",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "VideoJS plugin that leverages videojs-contrib-quality-levels plugin to offer manual user-selectable level selection options for adaptive http streams.",
   "main": "dist/videojs-source-selector.cjs.js",
   "repository": {

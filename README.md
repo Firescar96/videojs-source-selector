@@ -1,4 +1,4 @@
-# videojs-http-source-selector
+# videojs-source-selector
 
 [![NPM](https://nodei.co/npm/@mtonomy/videojs-source-selector.png)](https://nodei.co/npm/@mtonomy/videojs-source-selector)
 
@@ -42,7 +42,7 @@ httpSourceSelector:
 
 ```sh
 npm install --save videojs-contrib-quality-levels
-npm install --save videojs-http-source-selector
+npm install --save videojs-source-selector
 ```
 
 # Dependencies
@@ -50,7 +50,7 @@ Requires videojs-contrib-quality-levels
 
 # Usage
 
-To include videojs-http-source-selector on your website or web application, use any of the following methods.
+To include videojs-source-selector on your website or web application, use any of the following methods.
 
 ### `<script>` Tag
 
@@ -58,7 +58,7 @@ This is the simplest case. Get the script in whatever way you prefer and include
 
 ```html
 <script src="//path/to/video.min.js"></script>
-<script src="//path/to/videojs-http-source-selector.min.js"></script>
+<script src="//path/to/videojs-source-selector.min.js"></script>
 <script src="//path/to/videojs-contrib-quality-levels.min.js"></script>
 <script>
   var options =
@@ -77,7 +77,7 @@ This is the simplest case. Get the script in whatever way you prefer and include
 
 ### Browserify/CommonJS
 
-When using with Browserify, install videojs-http-source-selector via npm and `require` the plugin as you would any other module.
+When using with Browserify, install videojs-source-selector via npm and `require` the plugin as you would any other module.
 
 ```js
 var videojs = require('video.js');
@@ -85,7 +85,7 @@ var videojs = require('video.js');
 // The actual plugin function is exported by this module, but it is also
 // attached to the `Player.prototype`; so, there is no need to assign it
 // to a variable.
-require('videojs-http-source-selector');
+require('videojs-source-selector');
 
 var player = videojs('my-video');
 
@@ -97,7 +97,7 @@ player.httpSourceSelector();
 When using with RequireJS (or another AMD library), get the script in whatever way you prefer and `require` the plugin as you normally would:
 
 ```js
-require(['video.js', 'videojs-http-source-selector'], function(videojs) {
+require(['video.js', 'videojs-source-selector'], function(videojs) {
   var player = videojs('my-video');
 
   player.httpSourceSelector();

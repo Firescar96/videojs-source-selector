@@ -1,10 +1,18 @@
-'use strict';
+/**
+ * @mtonomy/videojs-source-selector
+ * @version 1.3.1
+ * @copyright 2019 Justin Fujita <Justin@pivotshare.com>, Nchinda Nchinda <tech@mtonomy.com>
+ * @license MIT
+ */
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('video.js')) :
+	typeof define === 'function' && define.amd ? define(['video.js'], factory) :
+	(global.videojsHttpSourceSelector = factory(global.videojs));
+}(this, (function (videojs) { 'use strict';
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+videojs = videojs && videojs.hasOwnProperty('default') ? videojs['default'] : videojs;
 
-var videojs = _interopDefault(require('video.js'));
-
-var version = "1.3.0";
+var version = "1.3.1";
 
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -121,7 +129,7 @@ var SourceMenuButton = function (_MenuButton) {
 
   SourceMenuButton.prototype.createEl = function createEl() {
     return videojs.dom.createEl('div', {
-      className: 'vjs-http-source-selector vjs-menu-button vjs-menu-button-popup vjs-control vjs-button'
+      className: 'vjs-source-selector vjs-menu-button vjs-menu-button-popup vjs-control vjs-button'
     });
   };
 
@@ -196,7 +204,7 @@ var registerPlugin = videojs.registerPlugin || videojs.plugin;
 *           A plain object containing options for the plugin.
 */
 var onPlayerReady = function onPlayerReady(player, options) {
-  player.addClass('vjs-http-source-selector');
+  player.addClass('vjs-source-selector');
   //This plugin only supports level selection for HLS playback
   if (player.techName_ !== 'Html5') {
     return false;
@@ -249,4 +257,6 @@ registerPlugin('httpSourceSelector', httpSourceSelector);
 //Include the version number.
 httpSourceSelector.VERSION = version;
 
-module.exports = httpSourceSelector;
+return httpSourceSelector;
+
+})));

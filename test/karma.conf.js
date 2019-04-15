@@ -20,7 +20,7 @@ module.exports = function(config) {
     frameworks: ['qunit', 'detectBrowsers'],
     files: [
       'node_modules/video.js/dist/video-js.css',
-      'dist/videojs-http-source-selector.css',
+      'dist/videojs-source-selector.css',
       
       'node_modules/sinon/pkg/sinon.js',
       'node_modules/video.js/dist/video.js',

@@ -1,6 +1,6 @@
 import videojs from 'video.js';
 
-var version = "1.3.0";
+var version = "1.3.1";
 
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -117,7 +117,7 @@ var SourceMenuButton = function (_MenuButton) {
 
   SourceMenuButton.prototype.createEl = function createEl() {
     return videojs.dom.createEl('div', {
-      className: 'vjs-http-source-selector vjs-menu-button vjs-menu-button-popup vjs-control vjs-button'
+      className: 'vjs-source-selector vjs-menu-button vjs-menu-button-popup vjs-control vjs-button'
     });
   };
 
@@ -192,7 +192,7 @@ var registerPlugin = videojs.registerPlugin || videojs.plugin;
 *           A plain object containing options for the plugin.
 */
 var onPlayerReady = function onPlayerReady(player, options) {
-  player.addClass('vjs-http-source-selector');
+  player.addClass('vjs-source-selector');
   //This plugin only supports level selection for HLS playback
   if (player.techName_ !== 'Html5') {
     return false;

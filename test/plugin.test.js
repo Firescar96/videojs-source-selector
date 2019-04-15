@@ -15,7 +15,7 @@ QUnit.test('the environment is sane', function(assert) {
   assert.strictEqual(typeof plugin, 'function', 'plugin is a function');
 });
 
-QUnit.module('videojs-http-source-selector', {
+QUnit.module('videojs-source-selector', {
 
   beforeEach() {
 
@@ -43,7 +43,7 @@ QUnit.test('registers itself with video.js', function(assert) {
   assert.strictEqual(
     typeof Player.prototype.httpSourceSelector,
     'function',
-    'videojs-http-source-selector plugin was registered'
+    'videojs-source-selector plugin was registered'
   );
 
   this.player.httpSourceSelector();
@@ -52,7 +52,7 @@ QUnit.test('registers itself with video.js', function(assert) {
   this.clock.tick(1);
 
   assert.ok(
-    this.player.hasClass('vjs-http-source-selector'),
+    this.player.hasClass('vjs-source-selector'),
     'the plugin adds a class to the player'
   );
 });

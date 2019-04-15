@@ -25,7 +25,7 @@ class SourceMenuButton extends MenuButton {
 
   createEl() {
     return videojs.dom.createEl('div', {
-      className: 'vjs-http-source-selector vjs-menu-button vjs-menu-button-popup vjs-control vjs-button',
+      className: 'vjs-source-selector vjs-menu-button vjs-menu-button-popup vjs-control vjs-button',
     });
   }
 
