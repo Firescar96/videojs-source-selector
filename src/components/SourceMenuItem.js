@@ -10,21 +10,32 @@ class SourceMenuItem extends MenuItem {
   }
 
   handleClick() {
-    const levels = this.player().qualityLevels();
-    for(let i = 0; i < levels.length; i++) {
-      if(this.options_.index === i) {
-        levels[i].enabled = true;
-      } else {
-        levels[i].enabled = false;
+    const qualityLevels = this.player().qualityLevels();
+
+    if(this.options_.label == 'auto') {
+      qualityLevels.levels_.forEach(level => {
+        level.enabled = true
+      });
+    } else {
+      for(let i = 0; i < qualityLevels.length; i++) {
+        if(this.options_.index === i) {
+          qualityLevels[i].enabled = true;
+        } else {
+          qualityLevels[i].enabled = false;
+        }
       }
     }
+    
+    qualityLevels.selectedIndex_ = this.options_.index;
+    qualityLevels.trigger({ type: 'change', selectedIndex: this.options_.index });
+
 
     this.options_.controller.triggerItemUpdate();
   }
 
   update() {
-    const levels = this.player().qualityLevels();
-    this.selected(levels[this.options_.index].enabled);
+    const qualityLevels = this.player().qualityLevels();
+    this.selected(this.options_.index == qualityLevels.selectedIndex);
   }
 }
 

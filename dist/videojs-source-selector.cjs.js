@@ -4,7 +4,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var videojs = _interopDefault(require('video.js'));
 
-var version = "1.3.1";
+var version = "1.3.2";
 
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -72,21 +72,31 @@ var SourceMenuItem = function (_MenuItem) {
   }
 
   SourceMenuItem.prototype.handleClick = function handleClick() {
-    var levels = this.player().qualityLevels();
-    for (var i = 0; i < levels.length; i++) {
-      if (this.options_.index === i) {
-        levels[i].enabled = true;
-      } else {
-        levels[i].enabled = false;
+    var qualityLevels = this.player().qualityLevels();
+
+    if (this.options_.label == 'auto') {
+      qualityLevels.levels_.forEach(function (level) {
+        level.enabled = true;
+      });
+    } else {
+      for (var i = 0; i < qualityLevels.length; i++) {
+        if (this.options_.index === i) {
+          qualityLevels[i].enabled = true;
+        } else {
+          qualityLevels[i].enabled = false;
+        }
       }
     }
+
+    qualityLevels.selectedIndex_ = this.options_.index;
+    qualityLevels.trigger({ type: 'change', selectedIndex: this.options_.index });
 
     this.options_.controller.triggerItemUpdate();
   };
 
   SourceMenuItem.prototype.update = function update() {
-    var levels = this.player().qualityLevels();
-    this.selected(levels[this.options_.index].enabled);
+    var qualityLevels = this.player().qualityLevels();
+    this.selected(this.options_.index == qualityLevels.selectedIndex);
   };
 
   return SourceMenuItem;
@@ -99,24 +109,7 @@ var SourceMenuButton = function (_MenuButton) {
 
   function SourceMenuButton(player, options) {
     classCallCheck(this, SourceMenuButton);
-
-    var _this = possibleConstructorReturn(this, _MenuButton.call(this, player, options));
-
-    var levels = _this.player().qualityLevels();
-    //Handle options: We accept an options.default value of ( high || low )
-    //This determines a bias to set initial resolution selection.
-    if (options && options.default) {
-      if (options.default === 'low') {
-        levels.forEach(function (level, i) {
-          level.enabled = i === 0;
-        });
-      } else if (options.default === 'high') {
-        levels.forEach(function (level, i) {
-          level.enabled = levels.length - 1 === 0;
-        });
-      }
-    }
-    return _this;
+    return possibleConstructorReturn(this, _MenuButton.call(this, player, options));
   }
 
   SourceMenuButton.prototype.createEl = function createEl() {
@@ -155,18 +148,13 @@ var SourceMenuButton = function (_MenuButton) {
         index: index,
         sortVal: sortVal,
         controller: this,
-        label: levels[index].id
+        label: levels[index].label
       }));
     }
 
     //Sort menu items by their label name with Auto always first
     this.menuItems.sort(function (a, b) {
-      if (a.options_.sortVal < b.options_.sortVal) {
-        return 1;
-      }if (a.options_.sortVal > b.options_.sortVal) {
-        return -1;
-      }
-      return 0;
+      if (a.options_.sortVal < b.options_.sortVal) return 1;else return -1;
     });
     return this.menuItems;
   };
@@ -236,7 +224,6 @@ var httpSourceSelector = function httpSourceSelector(options) {
 
   this.ready(function () {
     onPlayerReady(_this, videojs.mergeOptions(defaults, options));
-    //this.getChild('controlBar').addChild('SourceMenuButton', {});
   });
 
   videojs.registerComponent('SourceMenuButton', SourceMenuButton);

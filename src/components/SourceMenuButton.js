@@ -6,21 +6,6 @@ const MenuButton = videojs.getComponent('MenuButton');
 class SourceMenuButton extends MenuButton {
   constructor(player, options) {
     super(player, options);
-
-    const levels = this.player().qualityLevels();
-    //Handle options: We accept an options.default value of ( high || low )
-    //This determines a bias to set initial resolution selection.
-    if(options && options.default) {
-      if(options.default === 'low') {
-        levels.forEach((level, i) => {
-          level.enabled = (i === 0);
-        });
-      } else if(options.default === 'high') {
-        levels.forEach((level, i) => {
-          level.enabled = ((levels.length - 1) === 0);
-        });
-      }
-    }
   }
 
   createEl() {
@@ -57,18 +42,14 @@ class SourceMenuButton extends MenuButton {
         index,
         sortVal,
         controller: this,
-        label: levels[index].id,
+        label: levels[index].label,
       }));
     }
 
     //Sort menu items by their label name with Auto always first
     this.menuItems.sort((a, b) => {
-      if(a.options_.sortVal < b.options_.sortVal) {
-        return 1;
-      } if(a.options_.sortVal > b.options_.sortVal) {
-        return -1;
-      }
-      return 0;
+      if(a.options_.sortVal < b.options_.sortVal) return 1;
+      else return -1;
     });
     return this.menuItems;
   }

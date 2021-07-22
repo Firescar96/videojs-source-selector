@@ -63,7 +63,6 @@ const onPlayerReady = (player, options) => {
 const httpSourceSelector = function (options) {
   this.ready(() => {
     onPlayerReady(this, videojs.mergeOptions(defaults, options));
-    //this.getChild('controlBar').addChild('SourceMenuButton', {});
   });
 
   videojs.registerComponent('SourceMenuButton', SourceMenuButton);

@@ -1,48 +1,25 @@
-# videojs-source-selector
+# @firescar96/videojs-quality-selector
 
-[![NPM](https://nodei.co/npm/@mtonomy/videojs-source-selector.png)](https://nodei.co/npm/@mtonomy/videojs-source-selector)
+THIS PROJECT IS FUNCTIONAL BUT EXPECT BREAKING CHANGES until I can straighten out 2 years of neglect.
+
+[![NPM](https://nodei.co/npm/@firescar96/videojs-source-selector.png)](https://nodei.co/npm/@firscar96/videojs-source-selector)
 
 VideoJS plugin that leverages videojs-contrib-quality-levels plugin to offer manual user-selectable level selection options for adaptive http streams.
 
-![Alt text](doc/images/example.png "Source selector")
 
-# Test it with your stream [here](https://vod.dev)
+![Alt text](doc/images/example.png "Source selector")
 
 Compatible with vjs 7 and up.
 
 ### Labels:
-Level labels are generated from the ```height``` and ```bitrate``` metadata parsed from the stream QualityLevels sources.  If ```height``` isn't available in the stream metadata, the labels will default to ```bitrate```.
+Level labels are generated from the ```id``` and ```label``` metadata parsed from the stream QualityLevels sources.
 
-### Default settings:
-You can configure a bias to lock playback to the highest or lowest resolution by default by passing one of the below plugin options into your videojs initializer.
-
-#### Low:
-```js
-httpSourceSelector:
-{
-  default: 'low'
-}
-```
-#### High:
-```js
-httpSourceSelector:
-{
-  default: 'high'
-}
-```
-#### Auto:
-```js
-httpSourceSelector:
-{
-  default: 'auto'
-}
-```
 
 # Installation
 
 ```sh
 npm install --save videojs-contrib-quality-levels
-npm install --save videojs-source-selector
+npm install --save @firescar96/videojs-source-selector
 ```
 
 # Dependencies
@@ -52,7 +29,7 @@ Requires videojs-contrib-quality-levels
 
 To include videojs-source-selector on your website or web application, use any of the following methods.
 
-### `<script>` Tag
+### `<script>` tag
 
 This is the simplest case. Get the script in whatever way you prefer and include the plugin _after_ you include [video.js][videojs], so that the `videojs` global is available. You can configure the plugin with the options described above.  
 
@@ -63,12 +40,10 @@ This is the simplest case. Get the script in whatever way you prefer and include
 <script>
   var options =
   {
-    plugins: {
-      httpSourceSelector:
-      {
-        default: 'auto'
-      }
-    }
+    // no options are allowed for now, but in the future options can be placed here
+    // plugins: {
+    //   httpSourceSelector: {}
+    // }
   };
   var player = videojs('my-video', options);
   player.httpSourceSelector();
@@ -85,19 +60,21 @@ var videojs = require('video.js');
 // The actual plugin function is exported by this module, but it is also
 // attached to the `Player.prototype`; so, there is no need to assign it
 // to a variable.
-require('videojs-source-selector');
+require('@firescar96/videojs-source-selector');
 
 var player = videojs('my-video');
 
 player.httpSourceSelector();
 ```
 
-### RequireJS/AMD
+### ES6
 
-When using with RequireJS (or another AMD library), get the script in whatever way you prefer and `require` the plugin as you normally would:
 
 ```js
-require(['video.js', 'videojs-source-selector'], function(videojs) {
+  import videojs from 'video.js';
+  import 'videojs-contrib-quality-levels';
+  import '@firescar96/videojs-source-selector';
+
   var player = videojs('my-video');
 
   player.httpSourceSelector();
@@ -115,11 +92,6 @@ go to localhost:9999 (or the next free port) and test out the plugin.
 * ```git push origin master --tags```
 * ```npm publish```
 
-### WIP: get tagged commits to master to trigger github action builds that publish to npm
-
 ## License
 
-MIT. Copyright (c) Justin Fujita, MTonomy;
-
-
-[videojs]: http://videojs.com/
+MIT. Copyright (c) Justin Fujita, Nchinda Nchinda;
