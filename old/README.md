@@ -1,8 +1,8 @@
 # @firescar96/videojs-quality-selector
 
-THIS PROJECT IS FUNCTIONAL BUT EXPECT BREAKING CHANGES until I can straighten out 2 years of neglect.
+THIS PROJECT IS FUNCTIONAL and being used in production BUT EXPECT BREAKING CHANGES until I can straighten out 2 years of neglect.
 
-[![NPM](https://nodei.co/npm/@firescar96/videojs-source-selector.png)](https://nodei.co/npm/@firscar96/videojs-source-selector)
+[![NPM](https://nodei.co/npm/@firescar96/videojs-quality-selector.png)](https://nodei.co/npm/@firscar96/videojs-quality-selector)
 
 VideoJS plugin that leverages videojs-contrib-quality-levels plugin to offer manual user-selectable level selection options for adaptive http streams.
 
@@ -19,7 +19,7 @@ Level labels are generated from the ```id``` and ```label``` metadata parsed fro
 
 ```sh
 npm install --save videojs-contrib-quality-levels
-npm install --save @firescar96/videojs-source-selector
+npm install --save @firescar96/videojs-quality-selector
 ```
 
 # Dependencies
@@ -27,7 +27,7 @@ Requires videojs-contrib-quality-levels
 
 # Usage
 
-To include videojs-source-selector on your website or web application, use any of the following methods.
+To include videojs-quality-selector on your website or web application, use any of the following methods.
 
 ### `<script>` tag
 
@@ -35,7 +35,7 @@ This is the simplest case. Get the script in whatever way you prefer and include
 
 ```html
 <script src="//path/to/video.min.js"></script>
-<script src="//path/to/videojs-source-selector.min.js"></script>
+<script src="//path/to/videojs-quality-selector.min.js"></script>
 <script src="//path/to/videojs-contrib-quality-levels.min.js"></script>
 <script>
   var options =
@@ -50,36 +50,6 @@ This is the simplest case. Get the script in whatever way you prefer and include
 </script>
 ```
 
-### Browserify/CommonJS
-
-When using with Browserify, install videojs-source-selector via npm and `require` the plugin as you would any other module.
-
-```js
-var videojs = require('video.js');
-
-// The actual plugin function is exported by this module, but it is also
-// attached to the `Player.prototype`; so, there is no need to assign it
-// to a variable.
-require('@firescar96/videojs-source-selector');
-
-var player = videojs('my-video');
-
-player.httpSourceSelector();
-```
-
-### ES6
-
-
-```js
-  import videojs from 'video.js';
-  import 'videojs-contrib-quality-levels';
-  import '@firescar96/videojs-source-selector';
-
-  var player = videojs('my-video');
-
-  player.httpSourceSelector();
-});
-```
 
 ### Building from src
 To build, checkout the repo, run ```npm install``` && ```npm start```,
