@@ -1,13 +1,9 @@
 import videojs from 'video.js';
-import SourceMenuItem from './SourceMenuItem';
+import QualityLevelsItem from './QualityLevelsItem';
 
 const MenuButton = videojs.getComponent('MenuButton');
 
-class SourceMenuButton extends MenuButton {
-  constructor(player, options) {
-    super(player, options);
-  }
-
+class QualityLevelsMenu extends MenuButton {
   createEl() {
     return videojs.dom.createEl('div', {
       className: 'vjs-source-selector vjs-menu-button vjs-menu-button-popup vjs-control vjs-button',
@@ -38,7 +34,7 @@ class SourceMenuButton extends MenuButton {
         sortVal = parseInt(levels[index].bitrate, 10);
       }
 
-      this.menuItems.push(new SourceMenuItem(this.player_, {
+      this.menuItems.push(new QualityLevelsItem(this.player_, {
         index,
         sortVal,
         controller: this,
@@ -55,4 +51,4 @@ class SourceMenuButton extends MenuButton {
   }
 }
 
-export default SourceMenuButton;
+export default QualityLevelsMenu;

@@ -2,7 +2,7 @@ import videojs from 'video.js';
 
 const MenuItem = videojs.getComponent('MenuItem');
 
-class SourceMenuItem extends MenuItem {
+class QualityLevelsItem extends MenuItem {
   constructor(player, options) {
     super(player, options);
     this.selectable = true;
@@ -39,4 +39,4 @@ class SourceMenuItem extends MenuItem {
   }
 }
 
-export default SourceMenuItem;
+export default QualityLevelsItem;

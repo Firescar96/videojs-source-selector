@@ -7,7 +7,7 @@ THIS PROJECT IS FUNCTIONAL and being used in production BUT EXPECT BREAKING CHAN
 VideoJS plugin that leverages videojs-contrib-quality-levels plugin to offer manual user-selectable level selection options for adaptive http streams.
 
 
-![Alt text](doc/images/example.png "Source selector")
+![Alt text](example.png "Source selector")
 
 Compatible with vjs 7 and up.
 
