@@ -1,6 +1,6 @@
 # @firescar96/videojs-quality-selector
 
-THIS PROJECT IS FUNCTIONAL and being used in production BUT EXPECT BREAKING CHANGES until I can straighten out 2 years of neglect.
+THIS project is functional and being used in production BUT EXPECT BREAKING CHANGES while on version 0.0.x.
 
 [![NPM](https://nodei.co/npm/@firescar96/videojs-quality-selector.png)](https://nodei.co/npm/@firscar96/videojs-quality-selector)
 

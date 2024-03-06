@@ -11,8 +11,6 @@ class QualityLevelsSelector extends Plugin {
     super(player, options);
 
     player.addClass('vjs-quality-selector');
-    console.log('setup')
-
 
     videojs.registerComponent('QualityLevelsItem', QualityLevelsItem);
     videojs.registerComponent('QualityLevelsMenu', QualityLevelsMenu);
@@ -22,7 +20,6 @@ class QualityLevelsSelector extends Plugin {
       if(player.videojs_http_source_selector_initialized !== 'undefined' && player.videojs_http_source_selector_initialized !== true) {
         player.videojs_http_source_selector_initialized = true;
         const { controlBar } = player;
-        window.controlBar = controlBar
         const fullscreenToggle = controlBar.getChild('fullscreenToggle').el();
         controlBar.el().insertBefore(controlBar.addChild('QualityLevelsMenu').el(), fullscreenToggle);
       }
@@ -32,3 +29,5 @@ class QualityLevelsSelector extends Plugin {
 
 QualityLevelsSelector.VERSION = version;
 videojs.registerPlugin('qualityLevelsSelector', QualityLevelsSelector);
+
+export default QualityLevelsSelector;

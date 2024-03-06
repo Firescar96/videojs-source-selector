@@ -4,6 +4,16 @@ import QualityLevelsItem from './QualityLevelsItem';
 const MenuButton = videojs.getComponent('MenuButton');
 
 class QualityLevelsMenu extends MenuButton {
+  constructor(player, options = {}) {
+    super(player, options);
+
+    const qualityLevels = player.qualityLevels();
+    
+    qualityLevels.on('addqualitylevel', this.update.bind(this));
+    qualityLevels.on('removequalitylevel', this.update.bind(this));
+    player.qualityLevelsSelector().on('update', this.update.bind(this))
+  }
+
   createEl() {
     return videojs.dom.createEl('div', {
       className: 'vjs-source-selector vjs-menu-button vjs-menu-button-popup vjs-control vjs-button',
