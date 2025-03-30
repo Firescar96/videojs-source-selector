@@ -1,6 +1,6 @@
 {
   "name": "@moltencloud/videojs-quality-selector",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "VideoJS plugin that leverages videojs-contrib-quality-levels plugin to offer manual user-selectable level selection options for adaptive http streams.",
   "scripts": {
     "prebuild": "npm run clean",
